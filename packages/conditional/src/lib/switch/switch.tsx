@@ -8,16 +8,15 @@ type AllowedChild = ReactElement<typeof Case | typeof Default>;
 type Props = { children: AllowedChild[] };
 
 export const Switch = ({ children }: Props) => {
-  const childrenArray = Children.toArray(children);
+  const childrenArray = Children.toArray(children) as AllowedChild[];
   const { cases, defaults } = getSwitchConfig(childrenArray);
 
   const matchedCase = cases.find(
-    (child) => (child as ReactElement<ConditionalProps>).props.condition
+    (child) => (child as ReactElement<ConditionalProps>).props.condition,
   );
 
-  return <>{matchedCase || defaults[0]}</>;
+  return matchedCase || defaults[0];
 };
 
 Switch.Case = Case;
 Switch.Default = Default;
-

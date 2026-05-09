@@ -1,9 +1,118 @@
-# @org/conditional
+# conditional
 
-Publishable React library generated with [Nx](https://nx.dev).
+`conditional` is a small React package for declarative conditional rendering.
 
-## Notes
+It helps you render UI branches in a more explicit, component-based way instead of relying on inline `&&` checks or nested ternaries in JSX.
 
-- `react` is declared as a peer dependency.
-- The package builds with Vite and publishes from `dist/`.
-- Run `npm exec -- nx test @org/conditional` to execute the unit tests.
+It exports two components:
+
+- `If` for simple boolean checks
+- `Switch` for multi-branch rendering with `Switch.Case` and `Switch.Default`
+
+## Installation
+
+```bash
+npm install conditional
+yarn add conditional
+pnpm add conditional
+bun add conditional
+```
+
+`react` is a peer dependency and must be installed in the consuming app.
+
+## Usage
+
+```tsx
+import { If, Switch } from "conditional";
+```
+
+### `If`
+
+Render children only when a condition is truthy.
+
+```tsx
+import { If } from "conditional";
+
+type Props = {
+  isLoggedIn: boolean;
+};
+
+export function WelcomeMessage({ isLoggedIn }: Props) {
+  return (
+    <If condition={isLoggedIn}>
+      <p>Welcome back.</p>
+    </If>
+  );
+}
+```
+
+### `Switch`
+
+Use `Switch` when you want to render the first matching branch.
+
+```tsx
+import { Switch } from "conditional";
+
+type Status = "idle" | "loading" | "success" | "error";
+
+type Props = {
+  status: Status;
+};
+
+export function StatusView({ status }: Props) {
+  return (
+    <Switch>
+      <Switch.Case condition={status === "loading"}>
+        <p>Loading...</p>
+      </Switch.Case>
+
+      <Switch.Case condition={status === "error"}>
+        <p>Something went wrong.</p>
+      </Switch.Case>
+
+      <Switch.Case condition={status === "success"}>
+        <p>Saved successfully.</p>
+      </Switch.Case>
+
+      <Switch.Default>
+        <p>Ready.</p>
+      </Switch.Default>
+    </Switch>
+  );
+}
+```
+
+## `Switch` Rules
+
+- `Switch` must contain at least one `Switch.Case`
+- `Switch` must contain exactly one `Switch.Default`
+- `Switch` only accepts `Switch.Case` and `Switch.Default` as direct children
+- If multiple cases are `true`, the first matching case is rendered
+
+## API
+
+### `If`
+
+```tsx
+type IfProps = {
+  condition: boolean;
+  children?: React.ReactNode;
+};
+```
+
+### `Switch.Case`
+
+```tsx
+type SwitchCaseProps = {
+  condition: boolean;
+  children?: React.ReactNode;
+};
+```
+
+### `Switch.Default`
+
+```tsx
+type SwitchDefaultProps = {
+  children?: React.ReactNode;
+};
+```

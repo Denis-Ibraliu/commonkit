@@ -20,7 +20,7 @@
     "!**/*.tsbuildinfo"
   ],
   "peerDependencies": {
-    "react": "^19.0.0"
+    "react": ">=18"
   },
   "publishConfig": {
     "access": "public"
