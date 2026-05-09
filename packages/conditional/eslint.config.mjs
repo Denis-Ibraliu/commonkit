@@ -7,7 +7,9 @@ export default [
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
     // Override or add rules here
-    rules: {},
+    rules: {
+      "react/jsx-no-useless-fragments": "off",
+    },
   },
   {
     ignores: ['**/out-tsc'],
