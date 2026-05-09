@@ -5,7 +5,7 @@ import { Case } from "./case/case";
 import { ConditionalProps } from "../types";
 
 type AllowedChild = ReactElement<typeof Case | typeof Default>;
-type Props = { children: AllowedChild[] };
+type Props = { children: AllowedChild | AllowedChild[] };
 
 export const Switch = ({ children }: Props) => {
   const childrenArray = Children.toArray(children) as AllowedChild[];

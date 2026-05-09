@@ -50,40 +50,11 @@
         "vitest": "~4.1.0",
       },
     },
-    "packages/async": {
-      "name": "@org/async",
-      "version": "0.0.1",
-      "dependencies": {
-        "tslib": "^2.3.0",
-      },
-    },
-    "packages/colors": {
-      "name": "@org/colors",
-      "version": "0.0.1",
-      "dependencies": {
-        "tslib": "^2.3.0",
-      },
-    },
     "packages/conditional": {
-      "name": "@org/conditional",
+      "name": "conditional",
       "version": "0.0.1",
-    },
-    "packages/strings": {
-      "name": "@org/strings",
-      "version": "0.0.1",
-      "dependencies": {
-        "tslib": "^2.3.0",
-      },
-      "devDependencies": {
-        "@org/utils": "workspace:*",
-        "vite": "^7.0.0",
-      },
-    },
-    "packages/utils": {
-      "name": "@org/utils",
-      "version": "0.0.1",
-      "dependencies": {
-        "tslib": "^2.3.0",
+      "peerDependencies": {
+        "react": ">=18",
       },
     },
   },
@@ -475,16 +446,6 @@
     "@nx/web": ["@nx/web@22.7.0", "", { "dependencies": { "@nx/devkit": "22.7.0", "@nx/js": "22.7.0", "detect-port": "^1.5.1", "http-server": "^14.1.0", "picocolors": "^1.1.0", "tslib": "^2.3.0" }, "peerDependencies": { "@nx/cypress": "22.7.0", "@nx/eslint": "22.7.0", "@nx/jest": "22.7.0", "@nx/playwright": "22.7.0", "@nx/vite": "22.7.0", "@nx/webpack": "22.7.0" }, "optionalPeers": ["@nx/cypress", "@nx/eslint", "@nx/jest", "@nx/playwright", "@nx/vite", "@nx/webpack"] }, "sha512-YY8dS+qZc3JOefZHyt+bysOG4ggOlwEMKP/amrPsB3AlqH9nIsXTWg8VMawGoBn+SD4a8Y8wwkbYC/pMdGReEA=="],
 
     "@nx/workspace": ["@nx/workspace@22.7.0", "", { "dependencies": { "@nx/devkit": "22.7.0", "@zkochan/js-yaml": "0.0.7", "chalk": "^4.1.0", "enquirer": "~2.3.6", "nx": "22.7.0", "picomatch": "4.0.4", "semver": "^7.6.3", "tslib": "^2.3.0", "yargs-parser": "21.1.1" } }, "sha512-ZhZYOlyPt1kJBvuC8MbTVTkDJSiEnr7Fu0luTGsbVLQO+2bHjIJml5HT1vCNpn39VH4Y4ZLgclHOt6P+KJH6/g=="],
-
-    "@org/async": ["@org/async@workspace:packages/async"],
-
-    "@org/colors": ["@org/colors@workspace:packages/colors"],
-
-    "@org/conditional": ["@org/conditional@workspace:packages/conditional"],
-
-    "@org/strings": ["@org/strings@workspace:packages/strings"],
-
-    "@org/utils": ["@org/utils@workspace:packages/utils"],
 
     "@oxc-project/types": ["@oxc-project/types@0.128.0", "", {}, "sha512-huv1Y/LzBJkBVHt3OlC7u0zHBW9qXf1FdD7sGmc1rXc2P1mTwHssYv7jyGx5KAACSCH+9B3Bhn6Z9luHRvf7pQ=="],
 
@@ -1115,6 +1076,8 @@
     "concat-map": ["concat-map@0.0.1", "", {}, "sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg=="],
 
     "concat-with-sourcemaps": ["concat-with-sourcemaps@1.1.0", "", { "dependencies": { "source-map": "^0.6.1" } }, "sha512-4gEjHJFT9e+2W/77h/DS5SGUgwDaOwprX8L/gl5+3ixnzkVJJsZWDSelmN3Oilw3LNDZjZV0yqH1hLG3k6nghg=="],
+
+    "conditional": ["conditional@workspace:packages/conditional"],
 
     "confbox": ["confbox@0.2.4", "", {}, "sha512-ysOGlgTFbN2/Y6Cg3Iye8YKulHw+R2fNXHrgSmXISQdMnomY6eNDprVdW9R5xBguEqI954+S6709UyiO7B+6OQ=="],
 
@@ -2411,8 +2374,6 @@
     "@nx/vitest/semver": ["semver@7.8.0", "", { "bin": { "semver": "bin/semver.js" } }, "sha512-AcM7dV/5ul4EekoQ29Agm5vri8JNqRyj39o0qpX6vDF2GZrtutZl5RwgD1XnZjiTAfncsJhMI48QQH3sN87YNA=="],
 
     "@nx/workspace/semver": ["semver@7.8.0", "", { "bin": { "semver": "bin/semver.js" } }, "sha512-AcM7dV/5ul4EekoQ29Agm5vri8JNqRyj39o0qpX6vDF2GZrtutZl5RwgD1XnZjiTAfncsJhMI48QQH3sN87YNA=="],
-
-    "@org/strings/vite": ["vite@7.3.3", "", { "dependencies": { "esbuild": "^0.27.0", "fdir": "^6.5.0", "picomatch": "^4.0.3", "postcss": "^8.5.6", "rollup": "^4.43.0", "tinyglobby": "^0.2.15" }, "optionalDependencies": { "fsevents": "~2.3.3" }, "peerDependencies": { "@types/node": "^20.19.0 || >=22.12.0", "jiti": ">=1.21.0", "less": "^4.0.0", "lightningcss": "^1.21.0", "sass": "^1.70.0", "sass-embedded": "^1.70.0", "stylus": ">=0.54.8", "sugarss": "^5.0.0", "terser": "^5.16.0", "tsx": "^4.8.1", "yaml": "^2.4.2" }, "optionalPeers": ["@types/node", "jiti", "less", "lightningcss", "sass", "sass-embedded", "stylus", "sugarss", "terser", "tsx", "yaml"], "bin": { "vite": "bin/vite.js" } }, "sha512-/4XH147Ui7OGTjg3HbdWe5arnZQSbfuRzdr9Ec7TQi5I7R+ir0Rlc9GIvD4v0XZurELqA035KVXJXpR61xhiTA=="],
 
     "@oxc-resolver/binding-wasm32-wasi/@napi-rs/wasm-runtime": ["@napi-rs/wasm-runtime@1.1.4", "", { "dependencies": { "@tybys/wasm-util": "^0.10.1" }, "peerDependencies": { "@emnapi/core": "^1.7.1", "@emnapi/runtime": "^1.7.1" } }, "sha512-3NQNNgA1YSlJb/kMH1ildASP9HW7/7kYnRI2szWJaofaS1hWmbGI4H+d3+22aGzXXN9IJ+n+GiFVcGipJP18ow=="],
 

@@ -52,9 +52,9 @@
     }
   ],
   "release": {
-    "projects": ["@org/conditional"],
+    "projects": ["conditional"],
     "version": {
-      "preVersionCommand": "npm exec -- nx run-many -t build --projects=@org/conditional"
+      "preVersionCommand": "npm exec -- nx run-many -t build --projects=conditional"
     }
   },
   "targetDefaults": {
