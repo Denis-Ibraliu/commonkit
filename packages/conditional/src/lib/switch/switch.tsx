@@ -7,6 +7,22 @@ import { ConditionalProps } from "../types";
 type AllowedChild = ReactElement<typeof Case | typeof Default>;
 type Props = { children: AllowedChild | AllowedChild[] };
 
+/**
+ * Renders the first matching `Switch.Case` child, or `Switch.Default` when no
+ * cases match.
+ *
+ * The component requires at least one `Switch.Case` and exactly one
+ * `Switch.Default`.
+ *
+ * @example
+ * ```tsx
+ * <Switch>
+ *   <Switch.Case condition={status === "success"}>Done</Switch.Case>
+ *   <Switch.Case condition={status === "error"}>Failed</Switch.Case>
+ *   <Switch.Default>Pending</Switch.Default>
+ * </Switch>
+ * ```
+ */
 export const Switch = ({ children }: Props) => {
   const childrenArray = Children.toArray(children) as AllowedChild[];
   const { cases, defaults } = getSwitchConfig(childrenArray);

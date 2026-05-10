@@ -5,6 +5,10 @@ import { Default } from "./switch/default/default";
 
 import { ERROR_MESSAGES } from "./constants";
 
+/**
+ * Splits `Switch` children into case and default branches while enforcing the
+ * library's runtime invariants.
+ */
 export const getSwitchConfig = (childrenArray: ChildType[]) => {
   const cases = filterChildrenByType(Case, childrenArray);
   const defaults = filterChildrenByType(Default, childrenArray);
