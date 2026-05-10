@@ -1,6 +1,6 @@
 {
   "name": "@commonkit/conditional",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Declarative React components for conditional rendering with If and Switch primitives.",
   "license": "MIT",
   "keywords": [
