@@ -1,0 +1,46 @@
+{
+  "name": "@commonkit/conditional",
+  "version": "0.0.1",
+  "description": "Declarative React components for conditional rendering with If and Switch primitives.",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "conditional",
+    "rendering",
+    "jsx",
+    "switch"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Denis-Ibraliu/util-libs.git",
+    "directory": "packages/conditional"
+  },
+  "homepage": "https://github.com/Denis-Ibraliu/util-libs/tree/main/packages/conditional",
+  "bugs": {
+    "url": "https://github.com/Denis-Ibraliu/util-libs/issues"
+  },
+  "sideEffects": false,
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo"
+  ],
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

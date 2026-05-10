@@ -1,0 +1,24 @@
+common-init-steps: &common-init-steps
+  - name: Checkout
+    uses: 'nrwl/nx-cloud-workflows/v5/workflow-steps/checkout/main.yaml'
+
+  - name: Install Node
+    uses: 'nrwl/nx-cloud-workflows/v5/workflow-steps/install-node/main.yaml'
+    inputs:
+      node_version: '20'
+
+  - name: Install Bun
+    uses: 'nrwl/nx-cloud-workflows/v5/workflow-steps/install-mise/main.yaml'
+    inputs:
+      tools: |
+        bun=1.3.13
+
+  - name: Install dependencies
+    script: |
+      bun install --frozen-lockfile
+
+launch-templates:
+  linux-medium-bun:
+    resource-class: 'docker_linux_amd64/medium'
+    image: 'ubuntu22.04-node24.14-v1'
+    init-steps: *common-init-steps
