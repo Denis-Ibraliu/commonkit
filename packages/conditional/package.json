@@ -1,6 +1,6 @@
 {
   "name": "@commonkit/conditional",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Declarative React components for conditional rendering with If and Switch primitives.",
   "license": "MIT",
   "keywords": [
@@ -16,12 +16,12 @@
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Denis-Ibraliu/util-libs.git",
+    "url": "https://github.com/Denis-Ibraliu/commonkit",
     "directory": "packages/conditional"
   },
   "homepage": "https://denis-ibraliu.github.io/",
   "bugs": {
-    "url": "https://github.com/Denis-Ibraliu/util-libs/issues"
+    "url": "https://github.com/Denis-Ibraliu/commonkit/issues"
   },
   "sideEffects": false,
   "exports": {
